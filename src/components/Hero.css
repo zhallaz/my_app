@@ -1,0 +1,24 @@
+.hero {
+  background-image: url("../assets/GettyImages-764777689-scaled.jpg");
+  background-image: no-repeat;
+  height: 100vh;
+  width: 100%;
+}
+.hero .typography {
+  font-size: 90px;
+  padding-top: 22px;
+  color: darkblue;
+}
+.hero div {
+  text-align: center;
+  align-items: center;
+  flex: start;
+  min-height: 50vh;
+}
+.hero h6 {
+  text-align: center;
+  align-items: center;
+  flex: start;
+  min-height: 50vh;
+  font-size: small;
+}
