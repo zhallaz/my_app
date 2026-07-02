@@ -25,6 +25,7 @@ export interface Event {
   id: Number;
   title: String;
   body: String;
+  description: String;
 }
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
@@ -57,10 +58,10 @@ export default function RecipeReviewCard() {
   // GET POST FUNCTION////
   useEffect(() => {
     const getpost = async () => {
-      let res = await fetch("https://jsonplaceholder.typicode.com/posts");
-      const data: Event[] = await res.json();
-      setPost(data);
-      console.log(data);
+      let res = await fetch("https://class-work-backend.onrender.com/api/products/get");
+      const data = await res.json();
+      setPost(data.products);
+      console.log(data.products);
     };
     getpost();
   }, []);
@@ -72,7 +73,7 @@ export default function RecipeReviewCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       {posts.map((post) => (
-        <div key={post.id.toString()}>
+        <div>
           {" "}
           <CardHeader
             avatar={
@@ -96,8 +97,7 @@ export default function RecipeReviewCard() {
           />
           <CardContent>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              This impressive paella is a perfect party dish and a fun meal to cook together with
-              your guests. Add 1 cup of frozen peas along with the mussels, if you like.
+              {post.description}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
